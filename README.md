@@ -1,0 +1,1 @@
+# bigam_autotests_console_errors
