@@ -29,3 +29,7 @@ class PersonalPageHelper(BasePage):
     @allure.step('Переходим на страницу "Профиль и настройки"')
     def click_link_settings(self):
         return self.find_element(locator=PersonalPageLocators.link_settings, wait_time=3).click()
+
+    @allure.step('Переходим на страницу "Мои организации"')
+    def click_link_my_organizations(self):
+        return self.find_element(locator=PersonalPageLocators.link_my_organizations, wait_time=3).click()
