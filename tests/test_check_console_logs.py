@@ -8,13 +8,13 @@ from pages.personal_page import PersonalPageHelper
 
 class TestCheckConsoleLogs:
 
-    # def test_check_console_errors_from_file(self, driver, test_input):
-    #     base_page = BasePage(driver)
-    #     base_page.go_to_page(path=test_input)
-    #     time.sleep(3)
-    #     log = driver.get_log('browser')
-    #
-    #     assert (log == []) or (log[0]['level'] != 'SEVERE')
+    def test_check_console_errors_from_file(self, driver, test_input):
+        base_page = BasePage(driver)
+        base_page.go_to_page(path=test_input)
+        time.sleep(3)
+        log = driver.get_log('browser')
+
+        assert (log == []) or (log[0]['level'] != 'SEVERE')
 
     def test_check_console_errors_main_personal_page(self, driver):
         base_page = BasePage(driver)
