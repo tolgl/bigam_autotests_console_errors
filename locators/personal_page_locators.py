@@ -8,3 +8,4 @@ class PersonalPageLocators:
     link_repairs = (By.XPATH, ".//a[@href='/personal/repairs/']")
     link_reviews = (By.XPATH, ".//a[@href='/personal/reviews/']")
     link_settings = (By.XPATH, ".//a[@href='/personal/settings/']")
+    link_my_organizations = (By.XPATH, ".//a[@href='/personal/organizations/']")
