@@ -1,5 +1,6 @@
 import time
 
+from locators.base_page_locators import BasePageLocators
 from pages.base_page import BasePage
 from pages.form_authorization import FormAuthorizationHelper
 from pages.header import HeaderHelper
@@ -8,8 +9,37 @@ from pages.personal_page import PersonalPageHelper
 
 class TestCheckConsoleLogs:
 
-    def test_check_console_errors_from_file(self, driver, test_input):
+    def test_check_console_errors_from_file_by_physical_person(self, driver, test_input):
         base_page = BasePage(driver)
+        base_page.go_to_page(path='')
+        base_page.miss_click_on_selection_city()
+        header = HeaderHelper(driver)
+        header.click_button_auth()
+        form_auth = FormAuthorizationHelper(driver)
+        form_auth.click_button_login_with_password()
+        form_auth.filing_field_phone(phone='9201494057')
+        form_auth.filing_field_password(password='123456')
+        form_auth.click_button_login()
+        base_page.wait_invisibility_element(locator=BasePageLocators.loader)
+        driver.execute_script('console.clear()')
+        base_page.go_to_page(path=test_input)
+        time.sleep(3)
+        log = driver.get_log('browser')
+        print(log)
+        assert (log == []) or (log[0]['level'] != 'SEVERE')
+
+    def test_check_console_errors_from_file_by_b2b_user(self, driver, test_input):
+        base_page = BasePage(driver)
+        base_page.go_to_page(path='')
+        base_page.miss_click_on_selection_city()
+        header = HeaderHelper(driver)
+        header.click_button_auth()
+        form_auth = FormAuthorizationHelper(driver)
+        form_auth.click_button_login_b2b()
+        form_auth.filing_form_auth_b2b_user(email='test_d@test.ru', password='87654321')
+        form_auth.click_button_login()
+        base_page.wait_invisibility_element(locator=BasePageLocators.loader)
+        driver.execute_script('console.clear()')
         base_page.go_to_page(path=test_input)
         time.sleep(3)
         log = driver.get_log('browser')
