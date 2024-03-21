@@ -9,3 +9,5 @@ class FormAuthLocators:
     button_login_b2b = (By.XPATH, ".//div/div[2]/div/div[2]/div/div/div/div[3]/button[1]")
     field_email = (By.XPATH, ".//input[@placeholder='E-mail']")
     field_password_b2b = (By.XPATH, ".//input[@type='password']")
+    h3_form_auth_physical_user = (By.CLASS_NAME, "physical-entity-auth-form__title")
+    h3_form_auth_b2b_user = (By.CLASS_NAME, "legal-entity-auth-form__title")
