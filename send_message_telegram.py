@@ -17,13 +17,13 @@ def send_message_telegram():
                     allure_reports.append(data)
         for i in allure_reports:
             status_test.append(i['status'])
-            if i['status'] == 'failed':
+            if i['status'] == 'failed' or i['status'] == 'broken':
                 name_failed_tests.append(i['name'])
 
         token = '6836860421:AAHgjmjF0MBH8Xvfb8yWkH2dQHE7P7GZynk'
         chat_id = '-1002120752814'
         message = f'Кол-во выполненных тестов: {status_test.count("passed")} \n' \
-                  f'Кол-во не выполненных тестов: {status_test.count("failed")} \n' \
+                  f'Кол-во не выполненных тестов: {status_test.count("failed") + status_test.count("broken")} \n' \
                   f'Тесты с ошибкой: {name_failed_tests}'
 
         url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={message}"
