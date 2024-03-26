@@ -9,7 +9,7 @@ from pages.personal_page import PersonalPageHelper
 
 class TestCheckConsoleLogs:
 
-    def test_check_console_errors_from_file_by_physical_person(self, driver):
+    def test_check_console_errors_from_file_by_physical_person(self, driver, test_input):
         base_page = BasePage(driver)
         base_page.go_to_page(path='')
         base_page.miss_click_on_selection_city()
@@ -23,7 +23,7 @@ class TestCheckConsoleLogs:
         base_page.wait_invisibility_element(locator=FormAuthLocators.h3_form_auth_physical_user)
         # возвращает лог и очищает консоль
         driver.get_log('browser')
-        base_page.go_to_page(path='/catalog/instrument-5748/?sort=price-desc')
+        base_page.go_to_page(path=test_input)
         time.sleep(3)
         log = driver.get_log('browser')
 
