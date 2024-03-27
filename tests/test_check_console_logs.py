@@ -23,11 +23,14 @@ class TestCheckConsoleLogs:
         base_page.wait_invisibility_element(locator=FormAuthLocators.h3_form_auth_physical_user)
         # возвращает лог и очищает консоль
         driver.get_log('browser')
-        base_page.go_to_page(path=test_input)
+        base_page.go_to_page(path='test_input')
         time.sleep(3)
         log = driver.get_log('browser')
-
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
+        print(level_error)
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_from_file_by_b2b_user(self, driver, test_input):
         base_page = BasePage(driver)
@@ -45,8 +48,11 @@ class TestCheckConsoleLogs:
         base_page.go_to_page(path=test_input)
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_main_personal_page(self, driver):
         base_page = BasePage(driver)
@@ -65,8 +71,11 @@ class TestCheckConsoleLogs:
         header.click_link_personal_account()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_my_orders_page(self, driver):
         base_page = BasePage(driver)
@@ -87,8 +96,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_my_order()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_favorites_personal_page(self, driver):
         base_page = BasePage(driver)
@@ -109,8 +121,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_favorites()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_history_product_page(self, driver):
         base_page = BasePage(driver)
@@ -131,8 +146,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_history_product()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_repairs_page(self, driver):
         base_page = BasePage(driver)
@@ -153,8 +171,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_repairs()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_reviews_personal_page(self, driver):
         base_page = BasePage(driver)
@@ -175,8 +196,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_reviews()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_settings_personal_page(self, driver):
         base_page = BasePage(driver)
@@ -197,8 +221,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_settings()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_main_personal_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -216,8 +243,11 @@ class TestCheckConsoleLogs:
         header.click_link_personal_account()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_my_organisation_page(self, driver):
         base_page = BasePage(driver)
@@ -237,8 +267,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_my_organizations()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_my_orders_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -258,8 +291,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_my_order()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_favorites_personal_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -279,8 +315,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_favorites()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_history_product_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -300,8 +339,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_history_product()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_repairs_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -321,8 +363,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_repairs()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_reviews_personal_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -342,8 +387,11 @@ class TestCheckConsoleLogs:
         personal_page.click_link_reviews()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
 
     def test_check_console_errors_settings_personal_page_by_b2b(self, driver):
         base_page = BasePage(driver)
@@ -363,5 +411,8 @@ class TestCheckConsoleLogs:
         personal_page.click_link_settings()
         time.sleep(3)
         log = driver.get_log('browser')
+        level_error = []
+        for error in log:
+            level_error.append(error['level'])
 
-        assert (log == []) or (log[0]['level'] != 'SEVERE')
+        assert (log == []) or ('SEVERE' not in level_error)
