@@ -23,7 +23,7 @@ class TestCheckConsoleLogs:
         base_page.wait_invisibility_element(locator=FormAuthLocators.h3_form_auth_physical_user)
         # возвращает лог и очищает консоль
         driver.get_log('browser')
-        base_page.go_to_page(path='test_input')
+        base_page.go_to_page(path=test_input)
         time.sleep(3)
         log = driver.get_log('browser')
         level_error = []
